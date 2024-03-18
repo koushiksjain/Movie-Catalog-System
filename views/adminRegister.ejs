@@ -1,0 +1,72 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+</head>
+<body>
+    <h1>Registration</h1>
+    <form action="/adminRegister" method="post">
+        <label for="username">Username</label>
+        <input type="text" name="username" placeholder="username">
+        <label for="password">Password</label>
+        <input type="text" name="password" placeholder="password" >
+        <label for="age">Age</label>
+        <input type="number" name="age" placeholder="18" >
+        <label for="country">Country</label>
+        <input type="text" name="country" placeholder="India">
+        <button type="submit">Register</button>
+
+
+    </form>
+</body>
+</html>-->
+<!DOCTYPE html>
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="/adminRegister.css">
+    <script src="/register.js"></script>
+</head>
+<body>
+    <div class="form-body">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <h3>Admin Registeration</h3>
+                        <form class="requires-validation" novalidate action="/adminRegister" method="post">
+                            <div class="col-md-12">
+                               <input class="form-control" type="text" name="username" placeholder="Username" required>
+                            </div>
+                            <div class="col-md-12">
+                                <input class="form-control" type="number" name="age" placeholder="Age" required>       
+                            </div>
+                           <div class="col-md-12">
+                                <select class="form-select mt-3" name="country" required>
+                                    <option selected disabled value="">Country</option>
+                                    <option value="india">India</option>
+                                    <option value="usa">USA</option>
+                                    <option value="china">China</option> 
+                               </select>
+                           </div>
+                           <div class="col-md-12">
+                              <input class="form-control" type="password" name="password" placeholder="Password" required>
+                               
+                           </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                          <label class="form-check-label">I confirm that all data are correct</label>
+                         <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
+                        </div>
+                            <div class="form-button mt-3">
+                                <button id="submit" type="submit" class="btn btn-primary">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review</title>
+    <link rel="stylesheet" href="/review.css">
+</head>
+<body>
+    <div id="nav">
+        <a href="/home">Home</a>
+        <a href="/watchlist">WatchList</a>
+        <a href="/completed">Completed</a>
+        <a href="/reviews">Reviews</a>
+        <a href="/community">Community</a>
+        <a href="/genres">Genres</a>
+        <form id='search' action="/search">
+            <input type="text" placeholder="Search Movies">
+            <button type="submit">Go</button>
+        </form>
+        <form id="login" action="/logout" method="post">
+            <button id="loginbuttton" type="submit">Logout</button>
+        </form>        
+    </div>
+    <div id="main">
+        <div id="page1">
+    <div id="review">
+        <h1>Your Reviews</h1>
+        <% if(locals.reviews && locals.reviews.length>0) { %>
+            <% reviews.forEach(review =>{ %>
+            <div id="container">
+                <div id="movieimg">
+                    <img src="<%= review.MOVIE_IMAGE_URL %>" alt="">
+                </div>
+            <div id="container2"> 
+                <div id="movietitle"> <a href="/movie/<%= review.MOVIE_ID %>"><%= review.TITLE %></a></div>
+                <div id="movietext">
+                    <p><%= review.TEXT %></p>
+                    <h3>Score :<%= review.SCORE %>/10</h3>
+                    <p>Likes:<%= review.LIKES %></p>
+                </div>
+            </div>
+
+            </div>
+            <% }); %>
+        <% } else { %>
+            <p>No Reviews Available right now</p>
+        <% } %>
+
+    </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/home.js"></script>
+</body>
+</html>

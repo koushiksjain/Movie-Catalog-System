@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=g">
+    <title>Genres</title>
+    <link rel="stylesheet" href="/genres.css">
+</head>
+<body>
+    <div id="nav">
+        <a href="/home">Home</a>
+        <a href="/watchlist">WatchList</a>
+        <a href="/completed">Completed</a>
+        <a href="/reviews">Reviews</a>
+        <a href="/community">Community</a>
+        <a href="/genres">Genres</a>
+        <form id='search' action="/search">
+            <input type="text" placeholder="Search Movies">
+            <button type="submit">Go</button>
+        </form>
+        <form id="login" action="/logout" method="post">
+            <button id="loginbuttton" type="submit">Logout</button>
+        </form>        
+    </div>
+    <div id="main">
+    <div id="page1">
+        <h2>Action :</h2>
+        <% if (locals.actionMovies && locals.actionMovies.length>0){ %>
+            <% locals.actionMovies.forEach(actionMovie => { %>
+                <div id="container">
+                    <div id="image">
+                        <img src="<%= actionMovie.MOVIE_IMAGE_URL %>" alt="">
+                    </div>
+                    <div id="movietitle"> <a href="/movie/<%= actionMovie.MOVIE_ID %>"><%=actionMovie.TITLE%></a></div>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>No Trending Movie</p>
+        <% } %>
+
+    </div>
+    <div id="page2">
+        <h2>Comedy :</h2>
+        <% if (locals.comedyMovies && locals.comedyMovies.length>0){ %>
+            <% locals.comedyMovies.forEach(comedyMovie => { %>
+                <div id="page2container">
+                    <div id="p2img">
+                        <img src="<%= comedyMovie.MOVIE_IMAGE_URL %>" alt="">
+                    </div>
+                    <div id="p2title"> <a href="/movie/<%= comedyMovie.MOVIE_ID %>"><%=comedyMovie.TITLE%></a></div>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>No Trending Movie</p>
+        <% } %>
+    </div>
+    <div id="page3">
+        <h2>Romance :</h2>
+        <% if (locals.romanceMovies && locals.romanceMovies.length>0){ %>
+            <% locals.romanceMovies.forEach(romanceMovie => { %>
+                <div id="p3container">
+                    <div id="p3image">
+                        <img src="<%= romanceMovie.MOVIE_IMAGE_URL %>" alt="">
+                    </div>
+                    <div id="p3title"> <a href="/movie/<%= romanceMovie.MOVIE_ID %>"><%=romanceMovie.TITLE%></a></div>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>No Trending Movie</p>
+        <% } %>
+    </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/home.js"></script>
+</body>
+</html>
